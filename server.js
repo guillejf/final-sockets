@@ -19,7 +19,8 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-const msgs = [];
+let msgs = [];
+//leer el archivo y cargar los msgs
 
 io.on("connection", (socket) => {
   //console.log("se creo un socket nuevo " + socket.id);
@@ -37,7 +38,9 @@ io.on("connection", (socket) => {
       socketid: socket.id,
       email: data.email,
       mensaje: data.mensaje,
+      //gregar el campo fecha
     });
+    //persistir en un archivo
 
     io.sockets.emit("msg-list", msgs);
   });

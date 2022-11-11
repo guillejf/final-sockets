@@ -22,6 +22,20 @@ socket.on("msg-list", (data) => {
   document.getElementById("div-list-msgs").innerHTML = html;
 });
 
+//CUANDO SE PUBLICA UN PRODUCTO NUEVO EL SERVER ME REENVIA EL ARRAY CON TODOS LOS PRODUCTOS
+/* socket.on("msg-list-productos", (data) => {
+  console.log("msg-list", data);
+  let html = "";
+  data.forEach((obj) => {
+    html += `
+    <div>
+      (${obj.socketid}) ${obj.email} dijo: ${obj.mensaje}
+    </div>
+    `;
+  });
+  document.getElementById("div-list-productos").innerHTML = html;
+}); */
+
 function enviarMsg() {
   const msgParaEnvio = document.getElementById("input-msg").value;
   const email = document.getElementById("input-email").value;
